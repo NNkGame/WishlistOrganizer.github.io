@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/WishlistOrganizer.github.io/static/css/main.1ddd33e5.css",
+    "main.js": "/WishlistOrganizer.github.io/static/js/main.3980a16b.js",
+    "static/js/453.5683da0c.chunk.js": "/WishlistOrganizer.github.io/static/js/453.5683da0c.chunk.js",
+    "index.html": "/WishlistOrganizer.github.io/index.html",
+    "main.1ddd33e5.css.map": "/WishlistOrganizer.github.io/static/css/main.1ddd33e5.css.map",
+    "main.3980a16b.js.map": "/WishlistOrganizer.github.io/static/js/main.3980a16b.js.map",
+    "453.5683da0c.chunk.js.map": "/WishlistOrganizer.github.io/static/js/453.5683da0c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1ddd33e5.css",
+    "static/js/main.3980a16b.js"
+  ]
+}
