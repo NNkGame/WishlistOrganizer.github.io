@@ -1,0 +1,463 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+/* Основные стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--tg-theme-bg-color, #ffffff);
+  color: var(--tg-theme-text-color, #000000);
+  line-height: 1.4;
+}
+
+.app {
+  max-width: 100%;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+/* Навигация */
+.navigation {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+  overflow-x: auto;
+}
+
+.navigation button {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border: 1px solid var(--tg-theme-button-color, #2481cc);
+  background: transparent;
+  color: var(--tg-theme-button-color, #2481cc);
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.navigation button.active {
+  background: var(--tg-theme-button-color, #2481cc);
+  color: var(--tg-theme-button-text-color, #ffffff);
+}
+
+/* Кнопки */
+.btn-primary {
+  background: var(--tg-theme-button-color, #2481cc);
+  color: var(--tg-theme-button-text-color, #ffffff);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--tg-theme-button-color, #2481cc);
+  border: 1px solid var(--tg-theme-button-color, #2481cc);
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+}
+
+/* Формы */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--tg-theme-bg-color, #ffffff);
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  background: var(--tg-theme-bg-color, #ffffff);
+  color: var(--tg-theme-text-color, #000000);
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+/* Списки желаний */
+.wishlist-manager {
+  padding-bottom: 20px;
+}
+
+.manager-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.wishlists-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wishlist-item {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.wishlist-header {
+  padding: 16px;
+  background: var(--tg-theme-secondary-bg-color, #f8f8f8);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.wishlist-info h4 {
+  margin-bottom: 4px;
+}
+
+.wishlist-description {
+  color: var(--tg-theme-hint-color, #999999);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.wishlist-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: var(--tg-theme-hint-color, #999999);
+}
+
+.visibility.public {
+  color: #4caf50;
+}
+
+.visibility.private {
+  color: #ff9800;
+}
+
+.wishlist-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.expand-arrow {
+  transition: transform 0.2s;
+  font-size: 12px;
+}
+
+.expand-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+.wishlist-content {
+  padding: 16px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.gifts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Элементы подарков */
+.gift-item {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.gift-item.reserved {
+  opacity: 0.7;
+  background: var(--tg-theme-secondary-bg-color, #f8f8f8);
+}
+
+.gift-item h5 {
+  margin-bottom: 4px;
+}
+
+.gift-description {
+  color: var(--tg-theme-hint-color, #999999);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.gift-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.reserved-badge {
+  color: #ff9800;
+}
+
+.multiple-badge {
+  color: #4caf50;
+}
+
+.gift-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Генератор идей */
+.idea-generator {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.generate-btn {
+  font-size: 16px;
+  padding: 12px 24px;
+  margin: 20px 0;
+}
+
+.generated-idea {
+  margin: 20px 0;
+}
+
+.idea-card {
+  border: 2px solid var(--tg-theme-button-color, #2481cc);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+}
+
+.idea-meta {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  font-size: 14px;
+}
+
+.idea-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.idea-tips {
+  margin-top: 30px;
+  text-align: left;
+  padding: 16px;
+  background: var(--tg-theme-secondary-bg-color, #f8f8f8);
+  border-radius: 8px;
+}
+
+.idea-tips ul {
+  margin-top: 8px;
+  padding-left: 20px;
+}
+
+.idea-tips li {
+  margin-bottom: 4px;
+}
+
+/* Состояния пустоты */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--tg-theme-hint-color, #999999);
+}
+
+.empty-gifts {
+  text-align: center;
+  padding: 20px;
+  color: var(--tg-theme-hint-color, #999999);
+}
+
+/* Поиск */
+.search-box {
+  margin: 16px 0;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Стили для публичных списков */
+.public-wishlists {
+  padding-bottom: 20px;
+}
+
+.public-header {
+  margin-bottom: 20px;
+}
+
+.public-header h2 {
+  margin-bottom: 8px;
+}
+
+.public-header p {
+  color: var(--tg-theme-hint-color, #999999);
+  margin-bottom: 16px;
+}
+
+.owner-badge {
+  background: var(--tg-theme-button-color, #2481cc);
+  color: var(--tg-theme-button-text-color, #ffffff);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 10px;
+}
+
+/* Стили для формы подарков */
+.gift-form {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: var(--tg-theme-secondary-bg-color, #f8f8f8);
+}
+
+.gift-form h4 {
+  margin-bottom: 16px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .manager-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  
+  .gift-item {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .gift-actions {
+    align-self: flex-end;
+  }
+}
+
+/* Состояния загрузки и ошибок */
+.loading {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--tg-theme-hint-color, #999999);
+}
+
+.error {
+  text-align: center;
+  padding: 20px;
+  background: #ffebee;
+  border: 1px solid #f44336;
+  border-radius: 8px;
+  color: #c62828;
+  margin: 16px 0;
+}
